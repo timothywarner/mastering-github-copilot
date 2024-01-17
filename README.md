@@ -15,11 +15,15 @@ Improve your efficiency with an AI-powered pair programmer!
 - [GitHub Copilot Business](https://docs.github.com/en/enterprise-cloud@latest/copilot/overview-of-github-copilot/about-github-copilot-business)
 - [Trust Center](https://resources.github.com/copilot-trust-center/)
 - [Blog](https://github.blog/)
+- [GitHub Copilot X](https://github.blog/2023-03-22-github-copilot-x-the-ai-powered-developer-experience/)
+- [GitHub Next](https://githubnext.com/)
 
 ## Docs
 
 - [Main docs](https://docs.github.com/copilot)
 - [Quickstart](https://docs.github.com/en/copilot/quickstart)
+- ["The Ultimate Manual"](https://nira.com/github-copilot/)
+- [Prompts, tips, and use cases](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/)
 
 ## Training
 
