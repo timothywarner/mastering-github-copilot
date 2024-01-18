@@ -16,7 +16,7 @@ def get_etymology(name):
             ],
         )
         return response.choices[0].message["content"]
-    except Exception as e:
+    ecept Exception as e:
         return f"An error occurred: {e}"
 
 

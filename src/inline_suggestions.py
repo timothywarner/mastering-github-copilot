@@ -2,6 +2,12 @@
 def calculate_sum(a, b):
   pass
 
+def calculate_difference(a, b):
+
+
+def number_guessing_game():
+  
+
 # Class stub
 class MyClass:
   def __init__(self):

@@ -1,27 +1,23 @@
 # Get all Key Vaults in the subscription
-$vaults = Get-AzKeyVault
+vaults=$(az keyvault list --query "[].name" -o tsv)
 
 # Loop through each Key Vault
-foreach ($vault in $vaults) {
+for vault in $vaults; do
   # Get all secrets in the Key Vault
-  $secrets = Get-AzKeyVaultSecret -VaultName $vault.VaultName
+  secrets=$(az keyvault secret list --vault-name $vault --query "[].name" -o tsv)
 
   # Loop through each secret
-  foreach ($secret in $secrets) {
+  for secret in $secrets; do
     # Check if the secret name includes "vm"
-    if ($secret.Name -like "*vm*") {
+    if [[ $secret == *"vm"* ]]; then
       # Get the secret's last accessed time
-      $lastAccessed = (Get-AzKeyVaultSecret -VaultName $vault.VaultName -Name $secret.Name).Attributes.Updated
+      lastAccessed=$(az keyvault secret show --vault-name $vault --name $secret --query "attributes.updated" -o tsv)
 
       # Create a custom object and output it
-      $output = New-Object PSObject -Property @{
-        Vault = $vault.VaultName
-        Secret = $secret.Name
-        Last_accessed = $lastAccessed
-      }
+      output="{\"Vault\":\"$vault\",\"Secret\":\"$secret\",\"Last_accessed\":\"$lastAccessed\"}"
 
       # Output the custom object
-      $output
-    }
-  }
-} | Format-Table
+      echo $output
+    fi
+  done
+done
